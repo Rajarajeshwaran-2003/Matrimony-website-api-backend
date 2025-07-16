@@ -40,7 +40,7 @@ def register_user(request):
     data = request.data.copy()
 
     # ✅ Check if password is present
-    if 'password' not in data:
+    if 'password' not in data or not data['password']:
         return Response({'error': 'Password is required'}, status=400)
 
     # ✅ Hash the password
